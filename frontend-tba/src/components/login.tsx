@@ -13,6 +13,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useState } from 'react'
+import axios from 'axios'
 
 
 // TODO remove, this demo shouldn't need to reset the theme.
@@ -25,8 +26,15 @@ export default function SignIn() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     SetUsername(data.get('username')!.toString())
-    SetPassword(data.get('passsword')!.toString())
-
+    SetPassword(data.get('password')!.toString())
+    // axios.post("http://localhost:3001/login",{username,password})
+    //   .then((res) =>{
+    //     if (res.data === "Success"){
+    //       console.log("pass")
+    //     }else{
+    //       console.log("fail")
+    //     }
+    //   })
   };
 
   return (
